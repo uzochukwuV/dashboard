@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <style>
+        form {
+            height: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            border: 1px solid gray;
+            font-size: 15px;
+            padding: 40px 5px;
+        }
+        input {
+            display: block;
+            width: 80%;
+            color: gray;
+            padding: 20px 20px;
+            
+            border: 1px solid gray;
+            margin: 0 auto;
+        }
+        label {
+            display: block;
+            margin: 0 auto;
+            width: 87%;
+            color: gray;
+            padding: 10px;
+            
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .btn {
+            width: 87%;
+            background-color: black;
+            color: white;
+            
+        }
+        .form-p {
+            padding-left: 40px;
+            font-size: 18px;
+        }
+        #register-link {
+            font-size: 20px;
+            font-weight: 800;
+            text-decoration: none;
+            text-transform: capitalize;
+        }
+    </style>
+</head>
+<body>
+    <a href="{% url 'members' %}" >Go to dashboard</a>
+    <form method="post">
+        {% csrf_token %}
+      
+
+       <label>
+        Username: {{request.user}}
+       </label>
+       <input type="text" name="username" placeholder="Username">
+
+       <br>
+
+       
+
+       <label>
+        Password
+       </label>
+       <input type="password" name="password_1" placeholder="Password">
+
+       <br>
+
+       
+       <label>
+        If you click then you accept our terms and conditions
+
+
+       </label>
+       <input type="submit" class="btn">
+
+
+       <p class="form-p">
+            Don't have an account? <a id="register-link" href="{% url 'signup' %}">Register Now</a>
+       </p>
+    </form>
+</body>
+</html>

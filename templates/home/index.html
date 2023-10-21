@@ -1,0 +1,384 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Dashboard</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-family: sans-serif;
+    text-decoration: none;
+}
+body {
+    background-color: aliceblue;
+}
+:root {
+    --color-background-color: aliceblue;
+    --color-card-1: blue;
+    --color-card-2: gray;
+    --color-card-3: purple;
+    --color-card-4: green;
+    --color-white: white;
+    --color-black: black;
+
+    --theme-toggler-span-active-color: rgb(64, 50, 116);
+
+}
+#search-profile {
+    color: blue;
+    height: 80px;
+    width: 96%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    border: 2px solid transparent;
+    margin-top: 20px;
+    margin-bottom: 15px;
+    padding-left: 30px;
+}
+#search {
+    height: 40px;
+    width: 96%;
+    border-radius: 15px;
+    padding-left: 15px;
+    font-size: 17px;
+    border: transparent;
+    background-color: aliceblue;
+}
+
+.theme-toggler {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 1.6rem;
+    width: 4.2rem;
+    cursor: pointer;
+    background-color: rgb(224, 220, 220);
+    border-radius: grey;
+}
+.theme-toggler span {
+    font-size: 1.2rem;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+.theme-toggler span.active {
+    background-color: rgb(64, 50, 116);
+    border-radius: 5px;
+
+}
+
+.GSP_icons {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap: 25px;
+    font-size: 21px;
+}
+#GSP_id_icons {
+    cursor: pointer;
+}
+.profile_img {
+    background-image: url('./profile_img.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    border: 2px solid grey;
+    margin-right: 20px;
+
+}
+.G-section {
+    display: flex;
+    gap: 30px;
+}
+.t-cards {
+    display: flex;
+    
+    
+}
+.GT-cards {
+    flex: 1;
+    
+    height: 150px;
+    max-width: 485px;
+    min-width: 350px;
+    width: 100%;
+    border: 10px solid aliceblue;
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+    justify-content: center;
+    align-items: start;
+    border-radius: 20px;
+    padding-left: 25px;
+}
+.GT-cards p {
+    font-weight: bold;
+}
+.GT-cards h1 {
+    font-weight: bold;
+    font-size: 28px;
+}
+#a-card {
+    background-color: blue;
+    color: white;
+}
+#b-card {
+    background-color: gray;
+    color: white;
+}
+#c-card {
+    background-color: purple;
+    color: white;
+}
+#d-card {
+    background-color: green;
+    color: white;
+}
+
+
+
+.menu {
+    background-color: white;
+    height: 100vh;
+    min-width: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+   
+    padding: 40px 10px;
+}
+
+.menuBlock {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    
+    
+}
+.menuItemsBlock {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    border-bottom: 1px solid aliceblue;
+    
+}
+
+.menuItems {
+    display: flex;
+    flex-direction: column;
+    gap: .5em;
+    
+}
+#active {
+    background-color: aliceblue;
+    border-radius: 15px;
+}
+
+.menuItems div {
+    padding: 20px 10px;
+    border-bottom: 2px solid aliceblue;
+}
+
+.menuItems div:hover {
+    background-color: aliceblue;
+    border-radius: 15px;
+}
+
+.menuBtn {
+    background-color: rgb(170, 131, 207);
+    border: 0;
+    width: 80px;
+    height: 40px;
+    display: inline-block;
+    text-align: center;
+    padding: 10px;
+    margin-right: 40px;
+}
+
+.menusmall {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.menuBlocksmall {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.menuItemsBlocksmall {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+   
+}
+.menuItemssmall {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+}
+.bsec {
+    flex: 1;
+}
+.menusmall {
+    display: none;
+}
+
+@media screen and (max-width : 550px) {
+body  {
+    padding-top: 40px;
+    width: 100vw;
+}
+
+.menu {
+    display: none;
+}
+
+.menusmall {
+    display: flex;
+    gap: 0.5em;
+    background-color: black;
+    color: white;
+}
+
+.t-cards {
+    display: flex;
+    flex-wrap: wrap;
+}
+}
+    </style>
+</head>
+<body>
+    <section class="G-section">
+        <section class="menu">
+            <div class="menuBlock">
+                <div class="menuImg">
+                    <img src="" alt=""> 
+                </div>
+                <div class="menuItemsBlock"> 
+                <div class="menuItems">
+                    <div id="active">Marketplace</div>
+                    <div>Dashboard</div>
+                    <div>Components</div>
+                    <div>Messages</div>
+                    <div>Settings</div>
+                </div>
+                </div>
+            </div>
+            <div>
+                
+                <a href="{% url 'signout' %}"  class="menuBtn" >logout</a>
+            </div>
+        </section>
+
+        <section class="menusmall">
+            <div class="menuBlocksmall">
+                <div class="menuImg">
+                    <img src="" alt=""> 
+                </div>
+                <div class="menuItemsBlocksmall"> 
+                <div class="menuItemssmall">
+                    <div>Marketplace</div>
+                    <div>Dashboard</div>
+                    <!-- <div>Components</div>
+                    <div>Messages</div>
+                    <div>Settings</div> -->
+                </div>
+                </div>
+            </div>
+            <div>
+                
+                <a href="{% url 'signout' %}"  class="menuBtn" >logout</a>
+            </div>
+        </section>
+
+
+        <section class="bsec">
+
+            <div id="search-profile">
+                <div>  <span><i class='bx bx-search' class="s_icon"></i></span>  <input type="search" placeholder="Search here...." id="search"></div>
+
+
+                <div class="theme-toggler">
+                    <span class="active"><i class='bx bx-sun'></i></span>
+                    <span><i class='bx bxs-moon' id="Dark_Theme"></i></span>
+                    
+                </div>
+
+
+                <div class="GSP_icons">
+                   hi  {{request.user}}
+                    <div><i class='bx bx-bell' id="GSP_id_icons"></i></div>
+
+                    <div class="GSP-second_icon"><i class='bx bx-message-rounded-detail' id="GSP_id_icons"></i></div>
+                    <div class="profile_img"></div>
+                </div>
+            </div>
+
+
+
+            <div>
+                <div class="t-cards">
+                    <div class="GT-cards" id="a-card">
+                        <p>Total Income</p>
+                        <h1>$ 579,000</h1>
+                        <p>Saved 25%</p>
+                    </div>
+                    <div class="GT-cards" id="b-card">
+                        <p>Total Expences</p>
+                        <h1>$ 79,000</h1>
+                        <p>Saved 25%</p>
+                    </div>
+                </div>
+                <div class="t-cards">
+                    <div class="GT-cards" id="c-card">
+                        <p>Cash on Hand</p>
+                        <h1>$ 92,000</h1>
+                        <p>Saved 25%</p>
+                    </div>
+                <div class="GT-cards" id="d-card">
+                        <p>Net Profit Margin</p>
+                        <h1>$ 179,000</h1>
+                        <p>Saved 65%</p>
+                    </div>
+                </div>
+            </div>
+            <a href="{% url 'signin' %}" >Go to login</a>
+
+
+            <div>
+                <div></div>
+                <div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+
+        </section>
+    </section>
+    <script src="admin-dash.js"></script>
+</body>
+</html>
